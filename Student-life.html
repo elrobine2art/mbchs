@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Life - Modongo Bilingual Comprehensive High School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'school-navy': '#0A192F',
+                        'school-gold': '#F6C23E',
+                    },
+                    fontFamily: {
+                        heading: ['Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.95)), url('campus-life.png');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-[#F9F8F3] text-school-navy font-sans antialiased">
+
+    <!-- ========================================== -->
+    <!-- 1. NAVIGATION HEADER (CONSISTENT)          -->
+    <!-- ========================================== -->
+    <header class="bg-[#0A192F] text-white sticky top-0 z-50 shadow-md">
+        <!-- Top Admissions Alert Bar -->
+        <div class="bg-[#F6C23E] text-[#0A192F] text-[11px] font-bold py-2 text-center uppercase tracking-wider relative z-40 shadow-sm px-4">
+            Admissions Open for 2026/2027 Academic Year • Apply Now to Secure a Place • Excellence in Bilingual Education
+        </div>
+        
+        <!-- Main Navigation Bar -->
+        <nav class="bg-[#0A192F] shadow-md border-b border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-20">
+
+                    <!-- Brand Logo Area -->
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 flex items-center gap-3">
+                            <img src="logo.png.jpg" alt="MBCHS Crest Logo" class="w-14 h-14 object-contain">
+                            <div>
+                                <span class="font-bold text-lg sm:text-xl text-white block leading-tight tracking-tight">MBCHS</span>
+                                <span class="text-[10px] uppercase tracking-widest text-[#F6C23E] font-bold block">Hard work, Discipline, Success</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Desktop Menu Navigation Links, Language Switcher, and Button (All Inline) -->
+                    <div class="hidden md:flex items-center space-x-6 text-sm font-semibold">
+                        <a href="index.html" class="text-white hover:text-[#F6C23E] transition-colors">Home</a>
+                        <a href="About.html" class="text-white hover:text-[#F6C23E] transition-colors">About Us</a>
+                        <a href="Programs.html" class="text-white hover:text-[#F6C23E] transition-colors">Programs</a>
+                        <a href="Admissions.html" class="text-white hover:text-[#F6C23E] transition-colors">Admissions</a>
+                        <a href="news.html" class="text-white hover:text-[#F6C23E] transition-colors">News & Events</a>
+                        <a href="student-life.html" class="text-[#F6C23E]">Student Life</a>
+                        <a href="contact.html" class="text-white hover:text-[#F6C23E] transition-colors">Contact</a>
+                        
+                        <!-- Language Switcher Box -->
+                        <div class="flex border border-[#F6C23E]/40 rounded bg-[#0A192F] p-0.5 text-xs font-bold ml-2">
+                            <button id="nav-lang-en" class="px-2.5 py-1 rounded bg-[#F6C23E] text-[#0A192F] transition-all">EN</button>
+                            <button id="nav-lang-fr" class="px-2.5 py-1 text-gray-400 hover:text-white transition-all">FR</button>
+                        </div>
+
+                        <!-- Apply Button -->
+                        <a href="Admissions.html" class="bg-[#F6C23E] text-[#0A192F] font-bold text-xs px-4 py-2.5 rounded shadow-md hover:bg-white transition-all">
+                            Apply Now
+                        </a>
+                    </div>
+
+                    <!-- Mobile Hamburger Menu Button -->
+                    <div class="flex items-center md:hidden">
+                        <button onclick="toggleMobileDrawerMenu()" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-white/5 focus:outline-none">
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Mobile Dropdown Panel Menu -->
+            <div class="hidden md:hidden bg-[#0A192F]/95 backdrop-blur-md border-t border-white/10" id="mobile-menu">
+                <div class="px-2 pt-2 pb-4 space-y-1 font-semibold text-sm">
+                    <a href="index.html" class="block px-4 py-3 text-gray-300 hover:bg-white/5 rounded">Home</a>
+                    <a href="About.html" class="block px-4 py-3 text-gray-300 hover:bg-white/5 rounded">About Us</a>
+                    <a href="Programs.html" class="block px-4 py-3 text-gray-300 hover:bg-white/5 rounded">Programs</a>
+                    <a href="Admissions.html" class="block px-4 py-3 text-gray-300 hover:bg-white/5 rounded">Admissions</a>
+                    <a href="news.html" class="block px-4 py-3 text-gray-300 hover:bg-white/5 rounded">News & Events</a>
+                    <a href="student-life.html" class="block px-4 py-3 text-[#F6C23E] bg-white/5 rounded">Student Life</a>
+                    <a href="contact.html" class="block px-4 py-3 text-gray-300 hover:bg-white/5 rounded">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <header class="relative hero-bg text-white py-24 sm:py-32 text-center border-b-2 border-school-gold">
+        <div class="max-w-4xl mx-auto px-4 space-y-6 relative z-10 flex flex-col items-center justify-center">
+            <span class="inline-block border border-school-gold/40 text-school-gold text-[10px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full bg-white/5">
+                Beyond Books & Classrooms
+            </span>
+            <h1 class="font-heading font-bold text-4xl sm:text-6xl text-white tracking-tight leading-tight">
+                Student Life at MBCHS
+            </h1>
+            <div class="w-16 bg-school-gold h-1 rounded-full"></div>
+            <p class="text-gray-300 text-sm sm:text-base max-w-xl mx-auto font-medium leading-relaxed">
+                Discover a vibrant campus environment designed to cultivate talents, build strong ethical character, and foster lifelong leadership attributes through diverse activities.
+            </p>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- CLUBS & SOCIETIES SECTION (6 CARDS)        -->
+    <!-- ========================================== -->
+    <section class="py-16 bg-[#F9F8F3] text-[#0A192F]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
+            <span class="text-[11px] uppercase tracking-widest text-school-gold font-bold block mb-2">Beyond the Classroom</span>
+            <h2 class="font-serif font-bold text-4xl text-[#0A192F] relative inline-block pb-4">
+                Clubs & Societies
+                <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-school-gold"></span>
+            </h2>
+        </div>
+        
+        <!-- 3-Column Grid for the 6 Cards -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            
+            <!-- Card 1: Debate Club -->
+            <div class="bg-[#F3F2EC] p-6 rounded-2xl border border-gray-200/50 shadow-sm flex flex-col space-y-4">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600">
+                    <!-- Book/Speech Icon -->
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <div>
+                    <h3 class="font-sans font-bold text-base text-[#0A192F]">Debate Club</h3>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Sharpen critical thinking and public speaking in both English and French.</p>
+                </div>
+            </div>
+            
+            <!-- Card 2: Drama Society -->
+            <div class="bg-[#F3F2EC] p-6 rounded-2xl border border-gray-200/50 shadow-sm flex flex-col space-y-4">
+                <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center text-purple-600">
+                    <!-- Mic Icon -->
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="font-sans font-bold text-base text-[#0A192F]">Drama Society</h3>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Explore theatre, storytelling, and performance arts in a bilingual context.</p>
+                </div>
+            </div>
+
+            <!-- Card 3: Art & Design Club -->
+            <div class="bg-[#F3F2EC] p-6 rounded-2xl border border-gray-200/50 shadow-sm flex flex-col space-y-4">
+                <div class="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center text-red-500">
+                    <!-- Palette Icon -->
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                </div>
+                <div>
+                    <h3 class="font-sans font-bold text-base text-[#0A192F]">Art & Design Club</h3>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Express creativity through painting, sculpture, and digital art.</p>
+                </div>
+            </div>
+
+            <!-- Card 4: Environmental Club -->
+            <div class="bg-[#F3F2EC] p-6 rounded-2xl border border-gray-200/50 shadow-sm flex flex-col space-y-4">
+                <div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center text-green-600">
+                    <!-- Globe Icon -->
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                </div>
+                <div>
+                    <h3 class="font-sans font-bold text-base text-[#0A192F]">Environmental Club</h3>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Lead sustainability initiatives and community environmental projects.</p>
+                </div>
+            </div>
+
+            <!-- Card 5: School Choir -->
+            <div class="bg-[#F3F2EC] p-6 rounded-2xl border border-gray-200/50 shadow-sm flex flex-col space-y-4">
+                <div class="w-10 h-10 rounded-xl bg-yellow-100 flex items-center justify-center text-yellow-600">
+                    <!-- Music Icon -->
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+                </div>
+                <div>
+                    <h3 class="font-sans font-bold text-base text-[#0A192F]">School Choir</h3>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Perform at school events and regional competitions.</p>
+                </div>
+            </div>
+
+            <!-- Card 6: Student Council -->
+            <div class="bg-[#F3F2EC] p-6 rounded-2xl border border-gray-200/50 shadow-sm flex flex-col space-y-4">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600">
+                    <!-- Users Icon -->
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="font-sans font-bold text-base text-[#0A192F]">Student Council</h3>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Represent student interests and organize school-wide activities.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- ATHLETICS & SPORTS SECTION (6 CARDS)       -->
+    <!-- ========================================== -->
+    <section class="py-20 bg-[#0A192F] text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
+            <span class="text-[11px] uppercase tracking-widest text-[#F6C23E] font-bold block mb-2">Athletics</span>
+            <h2 class="font-serif font-bold text-5xl text-white relative inline-block pb-4">
+                Sports
+                <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-school-gold"></span>
+            </h2>
+        </div>
+
+        <!-- 3-Column, 2-Row Horizontal Card Grid -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            
+            <!-- Card 1: Football -->
+            <div class="bg-white/5 border border-white/10 p-5 rounded-xl flex items-start space-x-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a2 2 0 10-2 2h2zm0 0h4m-4 0H8m4 13a9 9 0 110-18 9 9 0 010 18z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="font-sans font-bold text-base text-white">Football</h3>
+                    <p class="text-xs text-gray-400 mt-1 leading-relaxed">Regional champions for 2 consecutive years. Training 3x weekly.</p>
+                </div>
+            </div>
+
+            <!-- Card 2: Athletics -->
+            <div class="bg-white/5 border border-white/10 p-5 rounded-xl flex items-start space-x-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-rose-500/20 flex items-center justify-center text-rose-400">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="font-sans font-bold text-base text-white">Athletics</h3>
+                    <p class="text-xs text-gray-400 mt-1 leading-relaxed">Track and field events, long jump, high jump, and relay races.</p>
+                </div>
+            </div>
+
+            <!-- Card 3: Basketball -->
+            <div class="bg-white/5 border border-white/10 p-5 rounded-xl flex items-start space-x-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M14 12a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="font-sans font-bold text-base text-white">Basketball</h3>
+                    <p class="text-xs text-gray-400 mt-1 leading-relaxed">Boys and girls teams competing in inter-school tournaments.</p>
+                </div>
+            </div>
+
+            <!-- Card 4: Volleyball -->
+            <div class="bg-white/5 border border-white/10 p-5 rounded-xl flex items-start space-x-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h2a2.5 2.5 0 002.5-2.5V8a2.5 2.5 0 00-2.5-2.5h-1.5A2 2 0 0011.5 4h-1.5a2 2 0 00-2 2zm10.065 12H19a2 2 0 002-2v-1a2 2 0 00-2-2h-1.065M12 21a9 9 0 100-18 9 9 0 000 18z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="font-sans font-bold text-base text-white">Volleyball</h3>
+                    <p class="text-xs text-gray-400 mt-1 leading-relaxed">Mixed and single-gender teams with dedicated court facilities.</p>
+                </div>
+            </div>
+
+            <!-- Card 5: Table Tennis -->
+            <div class="bg-white/5 border border-white/10 p-5 rounded-xl flex items-start space-x-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 8v8m-4-5v1m-8 2h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="font-sans font-bold text-base text-white">Table Tennis</h3>
+                    <p class="text-xs text-gray-400 mt-1 leading-relaxed">Indoor sport available year-round with competitive leagues.</p>
+                </div>
+            </div>
+
+            <!-- Card 6: Swimming -->
+            <div class="bg-white/5 border border-white/10 p-5 rounded-xl flex items-start space-x-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-5.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
+                </div>
+                <div>
+                    <h3 class="font-sans font-bold text-base text-white">Swimming</h3>
+                    <p class="text-xs text-gray-400 mt-1 leading-relaxed">Swimming lessons and competitive events for all skill levels.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- CULTURAL ACTIVITIES SECTION                -->
+    <!-- ========================================== -->
+    <section class="py-16 bg-[#F9F8F3] text-[#0A192F]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            
+            <!-- Left Side: Content & Pillars -->
+            <div class="space-y-6">
+                <div>
+                    <span class="text-[11px] uppercase tracking-widest text-[#F6C23E] font-bold block mb-2">Beyond the Classroom</span>
+                    <h2 class="font-serif font-bold text-4xl text-[#0A192F]">Cultural Activities</h2>
+                </div>
+                
+                <p class="text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
+                    Our Annual Cultural Day celebrates the rich tapestry of Cameroonian and African heritage. Students perform traditional dances, present art exhibitions, prepare traditional cuisine, and showcase the beauty of our bilingual identity.
+                </p>
+                
+                <!-- Styled Bullet List -->
+                <ul class="space-y-3 text-xs sm:text-sm font-semibold text-[#0A192F]">
+                    <li class="flex items-center">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#F6C23E] inline-block mr-3 flex-shrink-0"></span>
+                        Annual Cultural Day Festival
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#F6C23E] inline-block mr-3 flex-shrink-0"></span>
+                        Bilingual Week Celebrations
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#F6C23E] inline-block mr-3 flex-shrink-0"></span>
+                        National Day Parade Participation
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#F6C23E] inline-block mr-3 flex-shrink-0"></span>
+                        Traditional Music & Dance Performances
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#F6C23E] inline-block mr-3 flex-shrink-0"></span>
+                        Inter-Cultural Exchange Programs
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Side: Showcase Image -->
+            <div class="rounded-3xl overflow-hidden shadow-sm border border-gray-200/40 bg-white p-2">
+                <img src="Cultural pic.png" alt="MBCHS Cultural Activities Showcase" class="w-full h-auto object-cover rounded-2xl">
+            </div>
+        </div>
+    </section>
+            <!-- ========================================== -->
+            <!-- 2. DISCIPLINE & CORE VALUES SECTION (3 CARDS) -->
+            <!-- ========================================== -->
+    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-school-navy">
+        <div class="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
+            <span class="text-xs font-bold text-school-gold uppercase tracking-widest mb-2">Our Pillars</span>
+            <h2 class="font-heading font-bold text-3xl sm:text-4xl">Discipline & Core Values</h2>
+            <div class="w-12 bg-school-gold h-0.5 mt-3 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-6 bg-white rounded-xl border-t-4 border-school-gold shadow-sm">
+                <h3 class="font-heading font-bold text-xl mb-3 text-school-navy">Moral Standards</h3>
+                <p class="text-sm text-gray-600 leading-relaxed font-normal">
+                    Instilling strict integrity framework metrics, authentic mutual group respect, and honest operational accountability models within standard community dynamics.
+                </p>
+            </div>
+
+            <div class="p-6 bg-white rounded-xl border-t-4 border-school-gold shadow-sm">
+                <h3 class="font-heading font-bold text-xl mb-3 text-school-navy">Punctuality</h3>
+                <p class="text-sm text-gray-600 leading-relaxed font-normal">
+                    Valuing strict schedules as an absolute prerequisite priority anchor standard for all ongoing professional administrative developments.
+                </p>
+            </div>
+
+            <div class="p-6 bg-white rounded-xl border-t-4 border-school-gold shadow-sm">
+                <h3 class="font-heading font-bold text-xl mb-3 text-school-navy">Academic Focus</h3>
+                <p class="text-sm text-gray-600 leading-relaxed font-normal">
+                    Cultivating focused studying spaces protected cleanly from surrounding external interruptions, making room for true performance evaluations.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3. CAMPUS ENVIRONMENT SECTION -->
+    <!-- ========================================== -->
+    <section class="py-20 bg-[#0A192F] text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <div>
+                    <span class="text-[11px] uppercase tracking-widest text-[#F6C23E] font-bold block mb-2">Beyond the Classroom</span>
+                    <h2 class="font-serif font-bold text-4xl text-white">Campus Environment</h2>
+                </div>
+                <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                    Our campus spans several acres of lush greenery, providing a peaceful and inspiring environment for learning. Modern classrooms, science laboratories, a well-stocked library, sports fields, and boarding facilities create a complete educational community.
+                </p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div class="bg-white/5 border border-white/10 p-4 rounded-xl flex flex-col justify-center">
+                        <div class="flex items-center space-x-2 text-[#F6C23E] font-bold text-sm mb-1">
+                            <span>🌿</span>
+                            <h4>Green Campus</h4>
+                        </div>
+                        <p class="text-[11px] text-gray-400">Lush tropical environment</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 p-4 rounded-xl flex flex-col justify-center">
+                        <div class="flex items-center space-x-2 text-[#F6C23E] font-bold text-sm mb-1">
+                            <span>📚</span>
+                            <h4>Library</h4>
+                        </div>
+                        <p class="text-[11px] text-gray-400">5,200+ Bilingual volumes</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 p-4 rounded-xl flex flex-col justify-center">
+                        <div class="flex items-center space-x-2 text-[#F6C23E] font-bold text-sm mb-1">
+                            <span>⚽</span>
+                            <h4>Sports Complex</h4>
+                        </div>
+                        <p class="text-[11px] text-gray-400">Football, basketball, athletics</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 p-4 rounded-xl flex flex-col justify-center">
+                        <div class="flex items-center space-x-2 text-[#F6C23E] font-bold text-sm mb-1">
+                            <span>🏠</span>
+                            <h4>Boarding</h4>
+                        </div>
+                        <p class="text-[11px] text-gray-400">Safe supervised dormitories</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rounded-3xl overflow-hidden border border-white/10 shadow-lg p-2 bg-white/5">
+                <img src="classroom.png" alt="Classroom Environment" class="w-full h-auto object-cover rounded-2xl">
+            </div>
+        </div>
+    </section>
+
+<!-- ========================================== -->
+    <!-- COMBINED DESIGN FOOTER (DATA PRESERVED)    -->
+    <!-- ========================================== -->
+    <footer class="bg-school-navy text-white pt-12 pb-6 border-t-2 border-school-gold relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Main Four-Column Footer Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <!-- Column 1: School Identity Branding (Style from im 2_2, Logo from im 3) -->
+                <div class="flex flex-col space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <!-- 2D Rounded Cool Golden Yellow Logo Badge Container -->
+                        <div class="w-12 h-12 bg-school rounded-full flex items-center justify-center p-2 shadow-sm shrink-0">
+                            <!-- Flat 2D Minimalist Graduation Cap Vector -->
+                            <img src="logo.png.jpg" alt="MBCHS Crest Logo" class="w-14 h-14 object-contain">
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-bold text-lg text-white tracking-wide leading-tight">
+                                MBCHS
+                        </div>
+                    </div>
+                    
+                    <!-- Motto/Slogan Line Placeholder from im 2_2 Layout -->
+                    <span class="text-sm text-gray-200 pt-1 font-medium italic">
+                        Motto: Hard Work, Discipline, Success
+                    </span>
+                    
+                    <!-- Social Media Flat 2D Circle Button Row -->
+                    <div class="flex items-center space-x-2 pt-1">
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold text-white hover:bg-school-gold hover:text-school-navy transition-colors">f</a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-school-gold hover:text-school-navy transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-school-gold hover:text-school-navy transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links Directory (Data Preserved exactly from im 3) -->
+                <div class="space-y-4">
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-2.5 text-xs font-semibold text-gray-400">
+                        <li>
+                            <a href="index.html" class="hover:text-[#F6C23E] transition-colors">Home</a>
+                        </li>
+                        <li>
+                            <a href="about.html" class="hover:text-[#F6C23E] transition-colors">About Us</a>
+                        </li>
+                        <li>
+                            <a href="programs.html" class="hover:text-[#F6C23E] transition-colors">Programs</a>
+                        </li>
+                        <li>
+                            <a href="admissions.html" class="hover:text-[#F6C23E] transition-colors">Admissions</a>
+                        </li>
+                        <li>
+                            <a href="news.html" class="hover:text-[#F6C23E] transition-colors">News & Events</a>
+                        </li>
+                        <li>
+                            <a href="student-life.html" class="hover:text-[#F6C23E] transition-colors">Student Life</a>
+                        </li>
+                        <li>
+                            <a href="contact.html" class="hover:text-[#F6C23E] transition-colors">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact Channels Layer (Data Preserved exactly from im 3 with 2D Gold Icons) -->
+                <div>
+                    <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-white mb-4">
+                        Contact Channels
+                    </h4>
+                    <ul class="space-y-3 text-sm text-gray-300 font-medium">
+                        <!-- Location Line -->
+                        <li class="flex items-start space-x-2.5">
+                            <svg class="w-4 h-4 text-school-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>Nkapa, Souza, Litoral, Cameroon</span>
+                        </li>
+                        <!-- Telephone Line Group -->
+                        <li class="flex items-start space-x-2.5">
+                            <svg class="w-4 h-4 text-school-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <div class="flex flex-col space-y-1">
+                                <span>+237 677952148</span>
+                                <span>+237 670087339</span>
+                                <span>+237 679589509</span>
+                            </div>
+                        </li>
+                        <!-- Email Line -->
+                        <li class="flex items-center space-x-2.5">
+                            <svg class="w-4 h-4 text-school-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="break-all">mbchs2023edu@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter Box Container (Style from im 2_2, Text from im 3) -->
+                <div>
+                    <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-white mb-4">
+                        Newsletter
+                    </h4>
+                    <p class="text-sm text-gray-300 mb-3 font-medium">
+                        Subscribe for school updates and news notifications instantly.
+                    </p>
+                    <form class="flex flex-col space-y-2">
+                        <input type="email" placeholder="Your work email address..." class="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-school-gold transition-colors">
+                        <!-- Premium Solid Golden Yellow Submit Button -->
+                        <button type="submit" class="w-full bg-school-gold text-school-navy font-bold text-sm py-2 rounded hover:bg-white hover:text-school-navy transition-all shadow-md">
+                            SUBSCRIBE
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bottom Sub-Footer Metadata Bar -->
+            <div class="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 font-medium space-y-3 md:space-y-0">
+                <div>
+                    © 2026 Modongo Bilingual Comprehensive High School. All rights reserved.
+                </div>
+                <div class="flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-end">
+                    <a href="#portal" class="hover:text-school-gold transition-colors">Student Portal</a>
+                    <a href="#portal" class="hover:text-school-gold transition-colors">Teacher Portal</a>
+                    <a href="#results" class="hover:text-school-gold transition-colors">Result Checker</a>
+                    <a href="#downloads" class="hover:text-school-gold transition-colors">Download Center</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+        <script>
+            function toggleFaq(id) {
+            const answer = document.getElementById(`faq-ans-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            // Check if clicked question is currently hidden
+            if (answer.classList.contains('hidden')) {
+                // Unhide answer panel
+                answer.classList.remove('hidden');
+                // Transform '+' marker into a clear bold '✕' close tag and recolor it
+                icon.innerText = '✕';
+                icon.classList.remove('text-gray-400');
+                icon.classList.add('text-[#F6C23E]', 'font-bold');
+            } else {
+                // Close the panel again
+                answer.classList.add('hidden');
+                // Revert icon marker back to the default cross symbol
+                icon.innerText = '＋';
+                icon.classList.remove('text-[#F6C23E]', 'font-bold');
+                icon.classList.add('text-gray-400');
+            }
+    }
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll(".filter-btn");
+        const cards = document.querySelectorAll(".announcement-card");
+
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+                const targetFilter = button.getAttribute("data-filter");
+
+                // 1. Instantly update button background highlights
+                buttons.forEach(btn => {
+                    btn.classList.remove("bg-[#0A192F]", "text-white", "shadow-sm");
+                    btn.classList.add("bg-white", "text-[#0A192F]", "border", "border-gray-200");
+                });
+                button.classList.add("bg-[#0A192F]", "text-white", "shadow-sm");
+                button.classList.remove("bg-white", "text-[#0A192F]", "border", "border-gray-200");
+
+                // 2. Pure strict 1-to-1 card matching loop
+                cards.forEach(card => {
+                    const cardCategory = card.getAttribute("data-category");
+
+                    if (targetFilter === "all") {
+                        // Show everything when "All" is clicked
+                        card.style.display = "flex";
+                    } else if (cardCategory === targetFilter) {
+                        // Isolate only the exact single card matching this button 
+                        card.style.display = "flex";
+                    } else {
+                        // Hide all other unrelated cards instantly
+                        card.style.display = "none";
+                    }
+                });
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modongo Bilingual Comprehensive High School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'school-navy': '#051233',
+                        'school-gold': '#E5A93C',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bg-school-gold text-school-navy text-[11px] font-bold py-2 text-center uppercase tracking-wider relative z-40 shadow-sm px-4"
+         data-en="Admissions Open for 2026/2027 Academic Year • Apply Now to Secure a Place • Excellence in Bilingual Education"
+         data-fr="Admissions Ouvertes pour l'Année Académique 2026/2027 • Postulez Dès Maintenant • Excellence en Éducation Bilingue">
+        Admissions Open for 2026/2027 Academic Year • Apply Now to Secure a Place • Excellence in Bilingual Education
+    </div>
+    
+    <div>
+    <nav class="bg-[#0A192F] shadow-md sticky top-0 z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center gap-3">
+                        <img src="logo.png.jpg" alt="MBCHS Crest Logo" class="w-14 h-14 object-contain">
+                        <div>
+                            <span class="font-heading font-bold text-lg sm:text-xl text-white block leading-tight tracking-tight">MBCHS</span>
+                            <span class="text-xs uppercase tracking-widest text-school-gold font-semibold block"
+                                  data-en="Hard work, Discipline, Success"
+                                  data-fr="Travail, Discipline, Succès">
+                                  Hard work, Discipline, Success
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold">
+                    <a href="index.html" class="text-[#F6C23E] transition-colors" data-en="Home" data-fr="Accueil">Home</a>
+                    <a href="about.html" class="text-white hover:text-[#F6C23E] transition-colors" data-en="About Us" data-fr="À Propos">About Us</a>
+                    <a href="programs.html" class="text-white hover:text-[#F6C23E] transition-colors" data-en="Programs" data-fr="Programmes">Programs</a>
+                    <a href="admissions.html" class="text-white hover:text-[#F6C23E] transition-colors" data-en="Admissions" data-fr="Admissions">Admissions</a>
+                    <a href="news.html" class="text-white hover:text-[#F6C23E] transition-colors" data-en="News & Events" data-fr="Actualités & Événements">News & Events</a>
+                    <a href="student-life.html" class="text-white hover:text-[#F6C23E] transition-colors" data-en="Student Life" data-fr="Vie Étudiante">Student Life</a>
+                    <a href="contact.html" class="text-white hover:text-[#F6C23E] transition-colors" data-en="Contact" data-fr="Contact">Contact</a>
+                </nav>
+
+                <div class="hidden lg:flex items-center gap-4">
+                    <!-- Desktop Language Buttons -->
+                    <div class="flex border border-school-gold-40 rounded bg-school-navy p-0.5 text-xs font-bold">
+                        <button onclick="setGlobalLanguage('en')" id="nav-lang-en" class="px-2.5 py-1 rounded bg-school-gold text-school-navy transition-all">EN</button>
+                        <button onclick="setGlobalLanguage('fr')" id="nav-lang-fr" class="px-2.5 py-1 text-gray-400 hover:text-white transition-all">FR</button>
+                    </div>
+                    <a href="admissions.html" class="bg-school-gold text-school-navy font-bold text-xs px-4 py-2.5 rounded shadow hover:bg-white transition-all" data-en="Apply Now" data-fr="Postuler">
+                        Apply Now
+                    </a>
+                </div>
+
+                <div class="flex items-center lg:hidden">
+                    <button onclick="openDrawerMenu()" class="text-white hover:text-school-gold focus:outline-none p-2 rounded transition-colors">
+                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer & Panel Setup -->
+    <div id="drawer-backdrop" class="drawer-overlay" onclick="closeDrawerMenu()"></div>
+    <div id="side-drawer-panel" class="nav-drawer flex flex-col justify-between text-white">
+        <div>
+            <div class="flex items-center justify-between p-6 border-b border-white/10">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-school-gold flex items-center justify-center text-school-navy">🎓</div>
+                    <span class="font-heading font-bold text-lg">MBCHS</span>
+                </div>
+                <button onclick="closeDrawerMenu()" class="text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="p-6 space-y-2">
+                <a href="index.html" onclick="closeDrawerMenu()" class="block px-4 py-3 rounded drawer-link-active" data-en="Home" data-fr="Accueil">Home</a>
+                <a href="about.html" onclick="closeDrawerMenu()" class="block px-4 py-3 text-gray-300 hover:bg-white/5 rounded" data-en="About Us" data-fr="À Propos">About Us</a>
+                <a href="programs.html" onclick="closeDrawerMenu()" class="block px-4 py-3 text-gray-300 hover:bg-white/5 rounded" data-en="Programs" data-fr="Programmes">Programs</a>
+                <a href="admissions.html" onclick="closeDrawerMenu()" class="block px-4 py-3 text-gray-300 hover:bg-white/5 rounded" data-en="Admissions" data-fr="Admissions">Admissions</a>
+                <a href="news.html" onclick="closeDrawerMenu()" class="block px-4 py-3 text-gray-300 hover:bg-white/5 rounded" data-en="News & Events" data-fr="Actualités & Événements">News & Events</a>
+                <a href="contact.html" onclick="closeDrawerMenu()" class="block px-4 py-3 text-gray-300 hover:bg-white/5 rounded" data-en="Contact" data-fr="Contact">Contact</a>
+            </div>
+        </div>
+        <div class="p-6 border-t border-white/10 bg-black/10 space-y-4">
+            <div class="flex items-center justify-between">
+                <span class="text-xs text-gray-400 uppercase tracking-wider font-bold" data-en="Language:" data-fr="Langue :">Language:</span>
+                <div class="flex border border-school-gold-40 rounded bg-school-navy p-0.5 text-xs font-bold">
+                    <button onclick="setGlobalLanguage('en')" id="drawer-lang-en" class="px-3 py-1 rounded bg-school-gold text-school-navy">EN</button>
+                    <button onclick="setGlobalLanguage('fr')" id="drawer-lang-fr" class="px-3 py-1 text-gray-400">FR</button>
+                </div>
+            </div>
+            <a href="admissions.html" onclick="closeDrawerMenu()" class="block w-full text-center bg-school-gold text-school-navy font-bold py-3 rounded shadow-lg" data-en="Apply Now" data-fr="Postuler">
+                Apply Now
+            </a>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 3. CENTRALIZED HERO WELCOME SECTION        -->
+    <!-- ========================================== -->
+    <!-- ========================================== -->
+    <!-- BILINGUAL HERO BANNER SECTION              -->
+    <!-- ========================================== -->
+    <header id="home" class="relative hero-background text-white min-h-screen flex items-center pt-12 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 flex flex-col justify-center items-center min-h-[65vh]">
+            <div class="text-center max-w-5xl mt-12 flex flex-col items-center">
+                
+                <!-- Establishment Badge -->
+                <span class="inline-block border border-school-gold-40 text-school-gold text-[10px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-8 bg-white/5"
+                      data-en="EST. 2023 • Bilingual Excellence"
+                      data-fr="FONDÉ EN 2023 • Excellence Bilingue">
+                    EST. 2023 • Bilingual Excellence
+                </span>
+                
+                <!-- Main Impact Heading -->
+                <h1 class="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-white tracking-wide leading-[1.3] uppercase"
+                    data-en="Shaping Tomorrow's <br class='hidden sm:inline'>Leaders Today <br>Through Excellence in <br class='hidden sm:inline'>Bilingual Education"
+                    data-fr="Façonner les Leaders de <br class='hidden sm:inline'>Demain Dès Aujourd'hui <br>par l'Excellence de <br class='hidden sm:inline'>l'Éducation Bilingue">
+                    Shaping Tomorrow's <br class="hidden sm:inline">Leaders Today <br>Through Excellence in <br class="hidden sm:inline">Bilingual Education
+                </h1>
+                
+                <!-- Expanded Bold Accent Rule Line -->
+                <div class="w-64 bg-school-gold h-2 mt-8 mb-8 rounded-full shadow-sm"></div>
+                
+                <!-- Descriptive Subparagraph -->
+                <p class="text-base sm:text-xl text-gray-200 max-w-3xl leading-relaxed tracking-wide font-normal px-4"
+                   data-en="Modongo Bilingual Comprehensive High School offers world-class General, Technical, and Commercial education in a vibrant bilingual environment."
+                   data-fr="Le Collège Bilingue Polyvalent de Modongo offre une éducation de classe mondiale en Enseignement Général, Technique, et Commercial dans un environnement bilingue dynamique.">
+                    Modongo Bilingual Comprehensive High School offers world-class General, Technical, and Commercial education in a vibrant bilingual environment.
+                </p>
+                
+                <!-- Call to Action Buttons Block -->
+                <div class="mt-10 flex flex-wrap justify-center items-center gap-4">
+                    <a href="#admissions" class="inline-flex items-center bg-school-gold text-school-navy font-bold px-8 py-4 rounded shadow-lg hover:bg-white transition-all tracking-wider text-sm">
+                        <span data-en="Apply Now" data-fr="Postuler Maintenant">Apply Now</span>
+                    </a>
+                    <a href="#programs" class="border border-gray-400 text-white font-semibold px-8 py-4 rounded hover:bg-white/10 transition-all tracking-wider text-sm"
+                       data-en="Explore Programs"
+                       data-fr="Explorer les Programmes">
+                        Explore Programs
+                    </a>
+                </div>
+                <div class="mt-6">
+                    <a href="#contact" class="text-xs text-gray-400 hover:text-white underline underline-offset-4 tracking-widest uppercase"
+                       data-en="Contact Us"
+                       data-fr="Contactez-Nous">Contact Us</a>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator Graphic -->
+            <div class="absolute bottom-[-40px] left-1/2 transform -translate-x-1/2 hidden sm:flex flex-col items-center">
+                <div class="w-5 h-9 rounded-full border-2 border-gray-400/50 flex justify-center p-1">
+                    <div class="w-1 h-1 bg-school-gold rounded-full scroll-dot"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- 4. COMPACT STATS COUNTER LAYER (ALL GOLD)  -->
+    <!-- ========================================== -->
+    <section class="bg-[#0A192F] text-school-gold py-10 border-b border-white/5 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            
+            <!-- Stat Box 1: Students -->
+            <div class="p-2 flex flex-col items-center">
+                <div class="w-12 h-12 rounded-full bg-white/5 border-2 border-school-gold flex items-center justify-center mb-3 text-school-gold text-lg shadow-sm">
+                    👥
+                </div>
+                <span class="font-heading font-bold text-3xl sm:text-4xl text-school-gold tracking-tight">
+                    <span class="stat-counter" data-target="1200">1200</span>+
+                </span>
+                <!-- English Text -->
+                <span class="lang-en text-[11px] uppercase tracking-widest text-school-gold/80 font-bold mt-2 block">
+                    Students
+                </span>
+                <!-- French Text (Hidden by default) -->
+                <span class="lang-fr hidden text-[11px] uppercase tracking-widest text-school-gold/80 font-bold mt-2 block">
+                    Élèves
+                </span>
+            </div>
+
+            <!-- Stat Box 2: Teachers -->
+            <div class="p-2 flex flex-col items-center border-l border-white/10">
+                <div class="w-12 h-12 rounded-full bg-white/5 border-2 border-school-gold flex items-center justify-center mb-3 text-school-gold text-lg shadow-sm">
+                    📖
+                </div>
+                <span class="font-heading font-bold text-3xl sm:text-4xl text-school-gold tracking-tight">
+                    <span class="stat-counter" data-target="50">50</span>+
+                </span>
+                <!-- English Text -->
+                <span class="lang-en text-[11px] uppercase tracking-widest text-school-gold/80 font-bold mt-2 block">
+                    Teachers
+                </span>
+                <!-- French Text -->
+                <span class="lang-fr hidden text-[11px] uppercase tracking-widest text-school-gold/80 font-bold mt-2 block">
+                    Enseignants
+                </span>
+            </div>
+
+            <!-- Stat Box 3: Departments -->
+            <div class="p-2 flex flex-col items-center border-l border-white/10">
+                <div class="w-12 h-12 rounded-full bg-white/5 border-2 border-school-gold flex items-center justify-center mb-3 text-school-gold text-lg shadow-sm">
+                    🏫
+                </div>
+                <span class="font-heading font-bold text-3xl sm:text-4xl text-school-gold tracking-tight">
+                    <span class="stat-counter" data-target="12">12</span>
+                </span>
+                <!-- English Text -->
+                <span class="lang-en text-[11px] uppercase tracking-widest text-school-gold/80 font-bold mt-2 block">
+                    Departments
+                </span>
+                <!-- French Text -->
+                <span class="lang-fr hidden text-[11px] uppercase tracking-widest text-school-gold/80 font-bold mt-2 block">
+                    Départements
+                </span>
+            </div>
+
+            <!-- Stat Box 4: Success Rates -->
+            <div class="p-2 flex flex-col items-center border-l border-white/10">
+                <div class="w-12 h-12 rounded-full bg-white/5 border-2 border-school-gold flex items-center justify-center mb-3 text-school-gold text-lg shadow-sm">
+                    🏅
+                </div>
+                <span class="font-heading font-bold text-3xl sm:text-4xl text-school-gold tracking-tight">
+                    <span class="stat-counter" data-target="100">100</span>%
+                </span>
+                <!-- English Text -->
+                <span class="lang-en text-[11px] uppercase tracking-widest text-school-gold/80 font-bold mt-2 block">
+                    GCE/TVEE Target
+                </span>
+                <!-- French Text -->
+                <span class="lang-fr hidden text-[11px] uppercase tracking-widest text-school-gold/80 font-bold mt-2 block">
+                    Objectif GCE/TVEE
+                </span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- ========================================== -->
+    <!-- LATEST ANNOUNCEMENTS SECTION (FROM IMAGE 3)-->
+    <!-- ========================================== -->
+    <section id="news" class="bg-[#F9F8F3] py-20 text-school-navy">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header Layout Group -->
+            <div class="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
+                <span class="text-[12px] uppercase tracking-widest text-school-gold font-bold mb-3 block">
+                    Latest Updates
+                </span>
+                <!-- Increased Title Size -->
+                <h2 class="font-heading font-bold text-4xl sm:text-5xl text-school-navy tracking-tight">
+                    Latest Announcements
+                </h2>
+                <!-- Decorative Gold Separator Line from image 3.jpeg -->
+                <div class="w-16 bg-school-gold h-1 mt-4 mb-5 rounded-full"></div>
+                <!-- Increased Subtitle Size -->
+                <p class="text-lg text-gray-600 font-normal leading-relaxed">
+                    Stay informed about school news, upcoming events, and important updates.
+                </p>
+            </div>
+
+            <!-- Three-Column Content Announcement Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Join Our Community -->
+                <div class="bg-white rounded-xl shadow-sm border-l-4 border-school-gold p-8 flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                        <!-- Badge & Date Layout Header Row -->
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="bg-gray-100 text-gray-700 text-xs font-bold px-3 py-1 rounded-md">
+                                News & Events
+                            </span>
+                            <span class="text-sm text-gray-400 font-medium">May 10, 2026</span>
+                        </div>
+                        <!-- Cool Golden Yellow Icon -->
+                        <div class="text-school-gold text-2xl mb-4">
+                            🔔
+                        </div>
+                        <!-- Increased Heading Size -->
+                        <h3 class="font-heading font-bold text-2xl text-school-navy mb-3 tracking-tight">
+                            Join Our Community
+                        </h3>
+                        <!-- Increased Description Text Size -->
+                        <p class="text-base text-gray-600 leading-relaxed font-normal">
+                            Applications for the 2026–2027 academic year are now open. Submit your inquiry online or visit the admissions office.
+                        </p>
+                    </div>
+                    <div class="mt-8">
+                        <a href="#admissions" class="text-school-navy font-bold text-base inline-flex items-center hover:text-school-gold transition-colors">
+                            Read More <span class="ml-2 font-light">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: National Science Olympiad -->
+                <div class="bg-white rounded-xl shadow-sm border-l-4 border-school-gold p-8 flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="bg-gray-100 text-gray-700 text-xs font-bold px-3 py-1 rounded-md">
+                                Achievement
+                            </span>
+                            <span class="text-sm text-gray-400 font-medium">April 28, 2026</span>
+                        </div>
+                        <div class="text-school-gold text-2xl mb-4">
+                            🏅
+                        </div>
+                        <h3 class="font-heading font-bold text-2xl text-school-navy mb-3 tracking-tight">
+                            National Open Door Day
+                        </h3>
+                        <p class="text-base text-gray-600 leading-relaxed font-normal">
+                            Our students participate in various activities during the National Open Door Day, carrying out exquisite projects from all departments!
+                        </p>
+                    </div>
+                    <div class="mt-8">
+                        <a href="#achievements" class="text-school-navy font-bold text-base inline-flex items-center hover:text-school-gold transition-colors">
+                            Read More <span class="ml-2 font-light">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Annual Cultural Day -->
+                <div class="bg-white rounded-xl shadow-sm border-l-4 border-school-gold p-8 flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="bg-gray-100 text-gray-700 text-xs font-bold px-3 py-1 rounded-md">
+                                Event
+                            </span>
+                            <span class="text-sm text-gray-400 font-medium">June 15, 2026</span>
+                        </div>
+                        <div class="text-school-gold text-2xl mb-4">
+                            📅
+                        </div>
+                        <h3 class="font-heading font-bold text-2xl text-school-navy mb-3 tracking-tight">
+                            Annual Cultural Day
+                        </h3>
+                        <p class="text-base text-gray-600 leading-relaxed font-normal">
+                            Join us for our Annual Cultural Day celebration on June 15th, showcasing the rich diversity of our student body.
+                        </p>
+                    </div>
+                    <div class="mt-8">
+                        <a href="#events" class="text-school-navy font-bold text-base inline-flex items-center hover:text-school-gold transition-colors">
+                            Read More <span class="ml-2 font-light">→</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- WELCOME / PRINCIPAL'S MESSAGE (FROM IM 1)  -->
+    <!-- ========================================== -->
+    <section id="welcome" class="bg-[#F9F8F3] pb-24 pt-4 text-school-navy">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl">
+                
+                <!-- Tiny Overheadline Tag -->
+                <span class="text-[11px] sm:text-[12px] uppercase tracking-widest text-school-gold font-bold mb-3 block">
+                    Principal's Message
+                </span>
+                
+                <!-- Main Serif Elegant Heading -->
+                <h2 class="font-heading font-bold text-4xl sm:text-5xl text-school-navy tracking-tight mb-8">
+                    A Message of Welcome
+                </h2>
+                
+                <!-- Blockquote Layout Area -->
+                <div class="flex gap-4 items-start mb-8">
+                    <!-- Elegant Cool Golden Yellow Quotation Icon -->
+                    <div class="text-school-gold text-4xl sm:text-5xl font-serif font-bold leading-none select-none pt-1">
+                        “
+                    </div>
+                    
+                    <!-- Italicized Message Content (Slightly Scaled Up) -->
+                    <p class="text-lg sm:text-xl text-gray-600 italic font-normal leading-relaxed tracking-wide">
+                        "Welcome to Modongo Bilingual Comprehensive High School — a place where every student is seen, heard, and challenged to reach their fullest potential. Our commitment to bilingual education prepares our students not just for examinations, but for life. We are proud of our heritage and excited about our future."
+                    </p>
+                </div>
+                
+                <!-- Primary Action Button Panel -->
+                <div class="pl-0 sm:pl-7">
+                    <a href="#about" class="inline-flex items-center bg-school-navy text-white font-semibold text-sm px-6 py-3 rounded hover:bg-school-navy/90 transition-all tracking-wider shadow-sm">
+                        <span>About Us</span>
+                        <span class="ml-2 font-light">→</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- ACADEMIC TRACKS SECTION (EXACT REPLICA)    -->
+    <section class="py-16 bg-[#0A192F] text-white text-center space-y-10" id="academic-tracks">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold text-school-gold uppercase tracking-widest">Academic Tracks</span>
+                <h2 class="font-heading font-bold text-5xl text-school-white mt-2">Three Pathways to Excellence</h2>
+                <p class="text-sm text-white/70 mt-2">Choose the educational track that aligns with your future career aspirations.</p>
+            </div>
+        
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                
+                <!-- Track 1: General Education -->
+               <div class="group bg-[#132542] border border-white/5 rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between p-4 pb-6 space-y-4 hover:border-white/20 transition-all">
+                    <div class="space-y-4">
+                        <!-- Image Container with Floating Bottom-Left Icon -->
+                        <div class="relative rounded-xl overflow-hidden h-44 w-full">
+                            <!-- Image now responds to group hover with a smooth scale zoom -->
+                            <img src="classroom.png" alt="General Education" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                            <!-- Floating Circle Icon on Bottom Left -->
+                            <div class="absolute bottom-3 left-3 w-8 h-8 bg-[#3B82F6] rounded-full flex items-center justify-center text-white text-xs shadow-md border border-white/20 z-10">
+                                🌐
+                            </div>
+                        </div>
+                        <!-- Content Area -->
+                        <div class="px-2 space-y-2">
+                            <h3 class="text-xl font-bold font-sans text-white">General Education</h3>
+                            <p class="text-gray-300 text-xs sm:text-sm font-normal leading-relaxed">
+                                A rigorous academic curriculum covering sciences, humanities, and languages. Prepares students for university entrance and professional careers.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <a href="programs.html" class="text-[#F6C23E] font-bold text-xs uppercase tracking-wider hover:text-white transition-colors inline-block">
+                            Learn More →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Track 2: Technical Education -->
+                <div class="group bg-[#132542] border border-white/5 rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between p-4 pb-6 space-y-4 hover:border-white/20 transition-all">
+                    <div class="space-y-4">
+                        <!-- Image Container with Floating Bottom-Left Icon -->
+                        <div class="relative rounded-xl overflow-hidden h-44 w-full">
+                            <!-- Image now responds to group hover with a smooth scale zoom -->
+                            <img src="technical-education.png" alt="Technical Education" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                            <!-- Floating Circle Icon on Bottom Left -->
+                            <div class="absolute bottom-3 left-3 w-8 h-8 bg-[#F59E0B] rounded-full flex items-center justify-center text-white text-xs shadow-md border border-white/20 z-10">
+                                🛠️
+                            </div>
+                        </div>
+                        <!-- Content Area -->
+                        <div class="px-2 space-y-2">
+                            <h3 class="text-xl font-bold font-sans text-white">Technical Education</h3>
+                            <p class="text-gray-300 text-xs sm:text-sm font-normal leading-relaxed">
+                                Hands-on vocational training combining theoretical knowledge with practical skills. Produces industry-ready graduates.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <a href="programs.html" class="text-[#F6C23E] font-bold text-xs uppercase tracking-wider hover:text-white transition-colors inline-block">
+                            Learn More →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Track 3: Commercial Education -->
+                <div class="group bg-[#132542] border border-white/5 rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between p-4 pb-6 space-y-4 hover:border-white/20 transition-all">
+                    <div class="space-y-4">
+                        <!-- Image Container with Floating Bottom-Left Icon -->
+                        <div class="relative rounded-xl overflow-hidden h-44 w-full">
+                            <!-- Image now responds to group hover with a smooth scale zoom -->
+                            <img src="campus-life.png" alt="Commercial Education" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                            <!-- Floating Circle Icon on Bottom Left -->
+                            <div class="absolute bottom-3 left-3 w-8 h-8 bg-[#10B981] rounded-full flex items-center justify-center text-white text-xs shadow-md border border-white/20 z-10">
+                                📊
+                            </div>
+                        </div>
+                        <!-- Content Area -->
+                        <div class="px-2 space-y-2">
+                            <h3 class="text-xl font-bold font-sans text-white">Commercial Education</h3>
+                            <p class="text-gray-300 text-xs sm:text-sm font-normal leading-relaxed">
+                                Business-focused curriculum covering accounting, economics, and entrepreneurship. Builds the next generation of business leaders.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <a href="programs.html" class="text-[#F6C23E] font-bold text-xs uppercase tracking-wider hover:text-white transition-colors inline-block">
+                            Learn More →
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Centered Bottom Yellow Action Button -->
+            <div class="pt-4 flex justify-center">
+                <a href="programs.html" class="bg-[#F6C23E] text-[#0A192F] font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-md hover:bg-white transition-all shadow-md inline-flex items-center space-x-1">
+                    <span>Explore Programs</span>
+                    <span class="text-[10px]">›</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- STUDENT LIFE SECTION (FULL BACKGROUND)     -->
+    <!-- ========================================== -->
+    <section class="relative bg-school-navy text-white py-28 sm:py-36 text-center overflow-hidden border-t-2 border-b-2 border-school-gold" id="student-life-banner">
+        <!-- Full Background Image Layer -->
+        <div class="absolute inset-0 z-0">
+            <img src="campus-life.png" alt="MBCHS Student Life Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-[#0A192F]/80 backdrop-blur-[2px]"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 flex flex-col items-center justify-center space-y-6">
+            <span class="text-[#F6C23E] uppercase tracking-widest text-xs font-bold block">Experience MBCHS</span>
+            
+            <h2 class="text-4xl sm:text-5xl font-serif font-bold tracking-tight text-white leading-tight max-w-2xl">
+                Student Life
+            </h2>
+            
+            <p class="text-white text-sm sm:text-base max-w-xl mx-auto font-medium leading-relaxed">
+                From sports to cultural clubs, debate societies to community service — life at Modongo Bilingual Comprehensive High School extends far beyond the classroom.
+            </p>
+            <div class="pt-4">
+                <a href="student-life.html" class="bg-[#F6C23E] text-[#0A192F] font-bold px-8 py-3 rounded-md text-xs uppercase tracking-wider hover:bg-white transition-all shadow-lg inline-block">
+                    Discover More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TESTIMONIALS SECTION (EXACT TEXT REPLICA)  -->
+    <!-- ========================================== -->
+    <section class="py-20 bg-[#F9F8F3] text-[#0A192F] text-center space-y-12" id="testimonials">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            
+            <!-- Section Header -->
+            <div class="space-y-2">
+                <span class="text-[#F6C23E] uppercase tracking-widest text-xs font-bold block">Testimonials</span>
+                <h2 class="text-4xl sm:text-5xl font-serif font-bold tracking-tight text-[#0A192F]">
+                    What Our Community Says
+                </h2>
+                <div class="w-16 h-0.5 bg-[#F6C23E] mx-auto mt-4"></div>
+            </div>
+
+            <!-- 3-Column Testimonial Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                
+                <!-- Testimonial 1: Kanbang Laurena -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <!-- 5 Star Rating -->
+                        <div class="text-[#F6C23E] text-lg tracking-tight">★★★★★</div>
+                        <!-- Quote text made bigger for better visibility -->
+                        <p class="text-[#0A192F] text-base font-medium italic leading-relaxed">
+                            "Modongo BCHS gave me the academic foundation and bilingual confidence to excel at university. The teachers genuinely care about every student."
+                        </p>
+                    </div>
+                    <!-- User Info Row -->
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-10 h-10 bg-[#0A192F] rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0">
+                            K
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-bold text-sm text-[#0A192F]">Kanbang Laurena</span>
+                            <span class="text-gray-500 text-xs font-medium leading-tight">Upper sixth, Class of 2023 - Now at University of Yaoundé</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2: Sufa Ezra -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <!-- 5 Star Rating -->
+                        <div class="text-[#F6C23E] text-lg tracking-tight">★★★★★</div>
+                        <!-- Quote text made bigger for better visibility -->
+                        <p class="text-[#0A192F] text-base font-medium italic leading-relaxed">
+                            "The discipline, the bilingual environment, and the quality of teaching here are exceptional. My daughter has grown immensely in just two years."
+                        </p>
+                    </div>
+                    <!-- User Info Row -->
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-10 h-10 bg-[#0A192F] rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0">
+                            S
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-bold text-sm text-[#0A192F]">Sufa Ezra</span>
+                            <span class="text-gray-500 text-xs font-medium leading-tight">Upper sixth, Class of 2025 - Now at University of Yaoundé</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3: Massango Ariana -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <!-- 5 Star Rating -->
+                        <div class="text-[#F6C23E] text-lg tracking-tight">★★★★★</div>
+                        <!-- Quote text made bigger for better visibility -->
+                        <p class="text-[#0A192F] text-base font-medium italic leading-relaxed">
+                            "The Technical Education program at Modongo prepared me directly for my engineering career. I am forever grateful for this institution."
+                        </p>
+                    </div>
+                    <!-- User Info Row -->
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-10 h-10 bg-[#0A192F] rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0">
+                            M
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-bold text-sm text-[#0A192F]">Massango Ariana</span>
+                            <span class="text-gray-500 text-xs font-medium leading-tight">Form 5 commercial, Class of 2021</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-[#0A192F] text-white pt-12 pb-6 border-t-2 border-school-gold relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
+                <span class="text-[16px] uppercase tracking-widest text-school-gold font-bold mb-3 block">
+                    JOIN OUR COMMUNITY
+                </span>
+            <div class="text-center max-w-5xl mt-12 flex flex-col items-center">
+            <h2 class="font-heading font-bold text-3xl sm:text-4xl tracking-tight mb-4">Begin Your Journey</h2>
+            </div>
+            <p class="text-gray-300 max-w-xl mx-auto text-sm sm:text-base mb-8">
+                Admissions for the 2026/2027 academic year are open. Take the first step toward an exceptional education today.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#admissions" class="bg-school-gold text-school-navy font-bold px-6 py-3.5 rounded shadow-lg hover:bg-white transition-all">
+                    Apply Online Now
+                </a>
+                <a href="#contact" class="border border-gray-400 text-white font-semibold px-6 py-3.5 rounded hover:bg-white/10 transition-all">
+                    Contact Us
+                </a>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-6 font-semibold text-xs sm:text-sm pt-8 border-t border-white/10 mt-6 w-full">
+                <div class="flex items-center space-x-2">
+                    <span class="w-5 h-5 rounded-full bg-[#F6C23E] text-[#0A192F] flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
+                    <span>Bilingual Education</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="w-5 h-5 rounded-full bg-[#F6C23E] text-[#0A192F] flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
+                    <span>Certified Teachers</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="w-5 h-5 rounded-full bg-[#F6C23E] text-[#0A192F] flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
+                    <span>Modern Facilities</span>
+                </div>
+</div> <!-- <-- THIS WAS MISSING! This closes the row and protects your footer -->
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- COMBINED DESIGN FOOTER (DATA PRESERVED)    -->
+    <!-- ========================================== -->
+    <footer class="bg-[#0A192F] text-white pt-12 pb-6 border-t-2 border-school-gold relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Main Four-Column Footer Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <!-- Column 1: School Identity Branding (Style from im 2_2, Logo from im 3) -->
+                <div class="flex flex-col space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <!-- 2D Rounded Cool Golden Yellow Logo Badge Container -->
+                        <div class="w-12 h-12 bg-school rounded-full flex items-center justify-center p-2 shadow-sm shrink-0">
+                            <!-- Flat 2D Minimalist Graduation Cap Vector -->
+                            <img src="logo.png.jpg" alt="MBCHS Crest Logo" class="w-14 h-14 object-contain">
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-bold text-lg text-white tracking-wide leading-tight">
+                                MBCHS
+                        </div>
+                    </div>
+                    
+                    <!-- Motto/Slogan Line Placeholder from im 2_2 Layout -->
+                    <span class="text-sm text-gray-200 pt-1 font-medium italic">
+                        Motto: Hard Work, Discipline, Success
+                    </span>
+                    
+                    <!-- Social Media Flat 2D Circle Button Row -->
+                    <div class="flex items-center space-x-2 pt-1">
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold text-white hover:bg-school-gold hover:text-school-navy transition-colors">f</a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-school-gold hover:text-school-navy transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-school-gold hover:text-school-navy transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links Directory (Data Preserved exactly from im 3) -->
+                <div class="space-y-4">
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-2.5 text-xs font-semibold text-gray-400">
+                        <li>
+                            <a href="index.html" class="hover:text-[#F6C23E] transition-colors">Home</a>
+                        </li>
+                        <li>
+                            <a href="about.html" class="hover:text-[#F6C23E] transition-colors">About Us</a>
+                        </li>
+                        <li>
+                            <a href="programs.html" class="hover:text-[#F6C23E] transition-colors">Programs</a>
+                        </li>
+                        <li>
+                            <a href="index.html#admissions" class="hover:text-[#F6C23E] transition-colors">Admissions</a>
+                        </li>
+                        <li>
+                            <a href="index.html#news" class="hover:text-[#F6C23E] transition-colors">News & Events</a>
+                        </li>
+                        <li>
+                            <a href="student-life.html" class="hover:text-[#F6C23E] transition-colors">Student Life</a>
+                        </li>
+                        <li>
+                            <a href="index.html#contact" class="hover:text-[#F6C23E] transition-colors">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Column 3: Contact Channels Layer (Data Preserved exactly from im 3 with 2D Gold Icons) -->
+                <div>
+                    <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-white mb-4">
+                        Contact Channels
+                    </h4>
+                    <ul class="space-y-3 text-sm text-gray-300 font-medium">
+                        <!-- Location Line -->
+                        <li class="flex items-start space-x-2.5">
+                            <svg class="w-4 h-4 text-school-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>Nkapa, Souza, Litoral, Cameroon</span>
+                        </li>
+                        <!-- Telephone Line Group -->
+                        <li class="flex items-start space-x-2.5">
+                            <svg class="w-4 h-4 text-school-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <div class="flex flex-col space-y-1">
+                                <span>+237 677952148</span>
+                                <span>+237 670087339</span>
+                                <span>+237 679589509</span>
+                            </div>
+                        </li>
+                        <!-- Email Line -->
+                        <li class="flex items-center space-x-2.5">
+                            <svg class="w-4 h-4 text-school-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="break-all">mbchs2023edu@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter Box Container (Style from im 2_2, Text from im 3) -->
+                <div>
+                    <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-white mb-4">
+                        Newsletter
+                    </h4>
+                    <p class="text-sm text-gray-300 mb-3 font-medium">
+                        Subscribe for school updates and news notifications instantly.
+                    </p>
+                    <form class="flex flex-col space-y-2">
+                        <input type="email" placeholder="Your work email address..." class="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-school-gold transition-colors">
+                        <!-- Premium Solid Golden Yellow Submit Button -->
+                        <button type="submit" class="w-full bg-school-gold text-school-navy font-bold text-sm py-2 rounded hover:bg-white hover:text-school-navy transition-all shadow-md">
+                            SUBSCRIBE
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bottom Sub-Footer Metadata Bar -->
+            <div class="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 font-medium space-y-3 md:space-y-0">
+                <div>
+                    © 2026 Modongo Bilingual Comprehensive High School. All rights reserved.
+                </div>
+                <div class="flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-end">
+                    <a href="#portal" class="hover:text-school-gold transition-colors">Student Portal</a>
+                    <a href="#portal" class="hover:text-school-gold transition-colors">Teacher Portal</a>
+                    <a href="#results" class="hover:text-school-gold transition-colors">Result Checker</a>
+                    <a href="#downloads" class="hover:text-school-gold transition-colors">Download Center</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- 12. END-TO-END EVENT ENGINE SCRIPTS        -->
+    <!-- ========================================== -->
+    <script>
+    // Opening Sidebar Drawer Panels
+    function openDrawerMenu() {
+        document.getElementById('side-drawer-panel').classList.add('open');
+        document.getElementById('drawer-backdrop').classList.add('open');
+    }
+
+    // Closing Sidebar Drawer Panels
+    function closeDrawerMenu() {
+        document.getElementById('side-drawer-panel').classList.remove('open');
+        document.getElementById('drawer-backdrop').classList.remove('open');
+    }
+
+    // Global High-Contrast Language Indicator Sync Trigger
+    function setGlobalLanguage(lang) {
+        // Save language preference to browser memory
+        localStorage.setItem('preferred_language', lang);
+
+        // Target and swap all text tracks dynamically using innerHTML
+        const targets = document.querySelectorAll('[data-en][data-fr]');
+        targets.forEach(el => {
+            el.innerHTML = lang === 'fr' ? el.getAttribute('data-fr') : el.getAttribute('data-en');
+        });
+
+        const navEn = document.getElementById('nav-lang-en');
+        const navFr = document.getElementById('nav-lang-fr');
+        const drawEn = document.getElementById('drawer-lang-en');
+        const drawFr = document.getElementById('drawer-lang-fr');
+
+        const activeClass = "px-2.5 py-1 rounded bg-school-gold text-school-navy transition-all";
+        const inactiveClass = "px-2.5 py-1 text-gray-400 hover:text-white transition-all";
+        const drawerActive = "px-3 py-1 rounded bg-school-gold text-school-navy";
+        const drawerInactive = "px-3 py-1 text-gray-400";
+
+        if (lang === 'en') {
+            if(navEn && navFr) { navEn.className = activeClass; navFr.className = inactiveClass; }
+            if(drawEn && drawFr) { drawEn.className = drawerActive; drawFr.className = drawerInactive; }
+            console.log("Global Blueprint Settings Changed to English");
+        } else {
+            if(navEn && navFr) { navEn.className = inactiveClass; navFr.className = activeClass; }
+            if(drawEn && drawFr) { drawEn.className = drawerInactive; drawFr.className = drawerActive; }
+            console.log("Global Blueprint Settings Changed to Français");
+        }
+    }
+
+    // --- BULLETPROOF TICKING NUMERIC LOGIC ENGINE ---
+    function initCounters() {
+        const stats = document.querySelectorAll('.stat-counter');
+        const totalFrames = 40; // Duration of animation steps
+
+        stats.forEach(counter => {
+            // Pull directly from data-target attribute to avoid innerHTML string parsing bugs
+            const targetValue = parseInt(counter.getAttribute('data-target'), 10);
+            if (isNaN(targetValue)) return;
+
+            let currentCount = 0;
+            const incrementStep = Math.ceil(targetValue / totalFrames);
+
+            const updateCounter = () => {
+                currentCount += incrementStep;
+                if (currentCount < targetValue) {
+                    counter.textContent = currentCount;
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = targetValue;
+                }
+            };
+            updateCounter();
+        });
+    }
+
+    // Delay execution slightly to ensure Live Server handles layout mapping first
+    document.addEventListener("DOMContentLoaded", () => {
+        // --- ADDED: Load the user's preferred language on startup ---
+        const savedLang = localStorage.getItem('preferred_language') || 'en';
+        setGlobalLanguage(savedLang);
+
+        setTimeout(initCounters, 400);
+    });
+</script>
+<script>
+// Function to toggle between languages across the entire page
+function setLanguage(lang) {
+    if (lang === 'fr') {
+        // Hide all English text, show all French text
+        document.querySelectorAll('.lang-en').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('.lang-fr').forEach(el => el.classList.remove('hidden'));
+    } else {
+        // Hide all French text, show all English text
+        document.querySelectorAll('.lang-fr').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('.lang-en').forEach(el => el.classList.remove('hidden'));
+    }
+}
+</script>
+</body>
+</html>

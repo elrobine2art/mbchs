@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs | MBCHS</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'school-navy': '#0A192F',
+                        'school-gold': '#F6C23E',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#F9F8F3] text-[#0A192F] flex flex-col min-h-screen">
+
+    <!-- ========================================== -->
+    <!-- 1. NAVIGATION HEADER (CONSISTENT)          -->
+    <!-- ========================================== -->
+    <header class="bg-[#0A192F] text-white sticky top-0 z-50 shadow-md">
+        <body>
+
+    <div class="bg-school-gold text-school-navy text-[11px] font-bold py-2 text-center uppercase tracking-wider relative z-40 shadow-sm px-4">
+        Admissions Open for 2026/2027 Academic Year • Apply Now to Secure a Place • Excellence in Bilingual Education
+    </div>
+    <div>
+
+    <nav class="bg-school-navy shadow-md sticky top-0 z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center gap-3">
+                        <img src="logo.png.jpg" alt="MBCHS Crest Logo" class="w-14 h-14 object-contain">
+                        <div>
+                            <span class="font-heading font-bold text-lg sm:text-xl text-white block leading-tight tracking-tight">MBCHS</span>
+                            <span class="text-[10px] uppercase tracking-widest text-[#F6C23E] font-bold block">Hard work, Discipline, Success</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inside index.html Navigation Bar -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold">
+                <a href="index.html" class="text-white hover:text-school-gold transition-colors">Home</a>
+                <a href="About.html" class="text-white hover:text-school-gold transition-colors">About Us</a>
+                <a href="Programs.html" class="text-school-gold">Programs</a>
+                <a href="Admissions.html" class="text-white hover:text-school-gold transition-colors">Admissions</a>
+                <a href="news.html" class="text-white hover:text-school-gold transition-colors">News & Events</a>
+                <a href="student-life.html" class="text-white hover:text-school-gold transition-colors">Student Life</a>
+                <a href="contact.html" class="text-white hover:text-school-gold transition-colors">Contact</a>
+            </nav>
+                <div class="hidden lg:flex items-center gap-4">
+                    <div class="flex border border-school-gold-40 rounded bg-school-navy p-0.5 text-xs font-bold">
+                        <button onclick="setGlobalLanguage('en')" id="nav-lang-en" class="px-2.5 py-1 rounded bg-school-gold text-school-navy transition-all">EN</button>
+                        <button onclick="setGlobalLanguage('fr')" id="nav-lang-fr" class="px-2.5 py-1 text-gray-400 hover:text-white transition-all">FR</button>
+                    </div>
+                    <a href="Admissions.html" class="bg-school-gold text-school-navy font-bold text-xs px-4 py-2.5 rounded shadow hover:bg-white transition-all">
+                        Apply Now
+                    </a>
+                </div>
+
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- 2. HERO SECTION (ENLARGED PER SPEC)        -->
+    <!-- ========================================== -->
+    <section class="relative bg-[#0A192F] text-white py-32 sm:py-80 text-center overflow-hidden border-b-2 border-[#F6C23E]">
+        <!-- Background Hero Image Asset Layer -->
+        <div class="absolute inset-0 z-0">
+            <img src="hero.jpeg" alt="MBCHS Campus background" class="w-full h-full object-cover opacity-20">
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 space-y-8">
+            <span class="text-[#F6C23E] uppercase tracking-widest text-xs font-bold block mb-2">Academic Programs</span>
+            <h2 class="text-4xl sm:text-6xl font-serif font-bold tracking-tight text-white leading-tight">
+                Three Pathways to Excellence
+            </h2>
+            
+            <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto font-medium leading-relaxed">
+                Choose the educational track that aligns with your passion and career aspirations.
+            </p>
+            
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3. MAIN PROGRAMS DASHBOARD SECTION         -->
+    <!-- ========================================== -->
+    <main class="flex-grow" id="programs">
+        
+        <!-- THE PATHWAY SELECTOR TABS -->
+        <!-- ========================================== -->
+<!-- PROGRAMS INTERACTIVE TABS SECTION          -->
+<!-- ========================================== -->
+<section class="py-16 bg-[#F9F8F3] text-[#0A192F]" id="programs-interactive">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <!-- Tab Navigation Buttons Row -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            <!-- General Education Button -->
+            <button onclick="switchTab('general')" id="tab-btn-general" class="tab-btn flex items-center justify-center space-x-3 px-6 py-4 rounded-xl font-bold text-sm transition-all shadow-md bg-[#0A192F] text-white border border-[#0A192F]">
+                <span class="text-base">🌐</span>
+                <span>General Education</span>
+            </button>
+
+            <!-- Technical Education Button -->
+            <button onclick="switchTab('technical')" id="tab-btn-technical" class="tab-btn flex items-center justify-center space-x-3 px-6 py-4 rounded-xl font-bold text-sm transition-all shadow-sm bg-white text-[#0A192F] border border-gray-200 hover:border-[#0A192F]">
+                <span class="text-base">🛠️</span>
+                <span>Technical Education</span>
+            </button>
+
+            <!-- Commercial Education Button -->
+            <button onclick="switchTab('commercial')" id="tab-btn-commercial" class="tab-btn flex items-center justify-center space-x-3 px-6 py-4 rounded-xl font-bold text-sm transition-all shadow-sm bg-white text-[#0A192F] border border-gray-200 hover:border-[#0A192F]">
+                <span class="text-base">📊</span>
+                <span>Commercial Education</span>
+            </button>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- TAB CONTENT AREA                           -->
+        <!-- ========================================== -->
+        <div class="max-w-6xl mx-auto">
+            
+            <!-- GENERAL EDUCATION PANEL -->
+            <div id="panel-general" class="tab-panel grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Left Image & Duration Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="group relative bg-white p-3 rounded-2xl shadow-md border border-gray-100 overflow-hidden">
+                        <div class="overflow-hidden rounded-xl h-64 w-full relative">
+                            <img src="classroom.png" alt="General Education" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute bottom-4 left-4 bg-[#0A192F] text-white font-bold px-4 py-2 rounded-lg text-[11px] tracking-wider uppercase border-l-4 border-[#F6C23E]">
+                                General Education
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Duration Box -->
+                    <div class="bg-[#0A192F] text-white p-6 rounded-2xl shadow-md space-y-1">
+                        <span class="text-[#F6C23E] text-[10px] uppercase tracking-widest font-bold block">Program Duration</span>
+                        <h4 class="text-3xl font-serif font-bold">5 - 7 Years</h4>
+                        <p class="text-gray-400 text-xs font-medium">Covering both Lower (1st Cycle) and Upper (2nd Cycle) Modules.</p>
+                    </div>
+                </div>
+
+                <!-- Right Details Column -->
+                <div class="lg:col-span-7 space-y-6 lg:pl-4">
+                    <div class="space-y-3">
+                        <h3 class="text-3xl font-serif font-bold text-[#0A192F]">General Education</h3>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed font-medium">
+                            Offers a comprehensive framework covering pure sciences, humanities, and languages, heavily focused on building critical analytical skills for higher level national public exams and prospective professional paths.
+                        </p>
+                    </div>
+                    <!-- Highlights -->
+                    <div class="space-y-3">
+                        <h4 class="text-xs uppercase tracking-wider font-bold text-bg-school-navy">Program Highlights</h4>
+                        <ul class="space-y-2.5 text-sm font-semibold text-gray-700">
+                            <li class="flex items-center space-x-2"><span class="text-green-500 text-base">✓</span> <span>Robust Science Layouts (Physics, Chemistry, Biology)</span></li>
+                            <li class="flex items-center space-x-2"><span class="text-green-500 text-base">✓</span> <span>Arts, Citizenship, History & Bilingual Expression Modules</span></li>
+                            <li class="flex items-center space-x-2"><span class="text-green-500 text-base">✓</span> <span>Direct Alignment to GCE Ordinary & Advanced Level Metrics</span></li>
+                        </ul>
+                    </div>
+                    <!-- Subjects Offered Labels -->
+                    <div class="space-y-3">
+                        <h4 class="text-xs uppercase tracking-wider font-bold textbg-school-navy">Subjects Offered</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">Mathematics</span>
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">Physics</span>
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">Chemistry</span>
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">Biology</span>
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">English Literature</span>
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">History</span>
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">Geography</span>
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">French</span>
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">And Many More</span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TECHNICAL EDUCATION PANEL -->
+            <div id="panel-technical" class="tab-panel hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Left Image & Duration Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="group relative bg-white p-3 rounded-2xl shadow-md border border-gray-100 overflow-hidden">
+                        <div class="overflow-hidden rounded-xl h-64 w-full relative">
+                            <img src="technical-education.png" alt="Technical Education" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute bottom-4 left-4 bg-[#0A192F] text-white font-bold px-4 py-2 rounded-lg text-[11px] tracking-wider uppercase border-l-4 border-[#F6C23E]">
+                                Technical Education
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Duration Box -->
+                    <div class="bg-[#0A192F] text-white p-6 rounded-2xl shadow-md space-y-1">
+                        <span class="text-[#F6C23E] text-[10px] uppercase tracking-widest font-bold block">Program Duration</span>
+                        <h4 class="text-3xl font-serif font-bold">3 - 5 Years</h4>
+                        <p class="text-gray-400 text-xs font-medium">Hands-on technical curriculum building engineering competencies.</p>
+                    </div>
+                </div>
+
+                <!-- Right Details Column -->
+                <div class="lg:col-span-7 space-y-6 lg:pl-4">
+                    <div class="space-y-3">
+                        <h3 class="text-3xl font-serif font-bold text-[#0A192F]">Technical Education</h3>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed font-medium">
+                            Hands-on vocational training combining theoretical knowledge with practical skills. Produces industry-ready graduates optimized for structural mechanics, machinery environments, and software integration configurations.
+                        </p>
+                    </div>
+                    <!-- Highlights -->
+                    <div class="space-y-3">
+                        <h4 class="text-xs uppercase tracking-wider font-bold text-gray-400">Program Highlights</h4>
+                        <ul class="space-y-2.5 text-sm font-semibold text-gray-700">
+                            <li class="flex items-center space-x-2"><span class="text-green-500 text-base">✓</span> <span>Intensive Workshop Practical Systems Training</span></li>
+                            <li class="flex items-center space-x-2"><span class="text-green-500 text-base">✓</span> <span>Advanced Machinery & Component Optimization Layouts</span></li>
+                            <li class="flex items-center space-x-2"><span class="text-green-500 text-base">✓</span> <span>Direct Access to Certification Standards</span></li>
+                        </ul>
+                    </div>
+                    <!-- Technical Fields Offered Labels -->
+                    <div class="space-y-3">
+                        <h4 class="text-xs uppercase tracking-wider font-bold text-gray-400">Technical Fields</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">Electricity</span>
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">Fashion Design</span>
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">Automotive Repair</span>
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">Building Construction</span>
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">Sheet Metal Work</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMMERCIAL EDUCATION PANEL -->
+            <div id="panel-commercial" class="tab-panel hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Left Image & Duration Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="group relative bg-white p-3 rounded-2xl shadow-md border border-gray-100 overflow-hidden">
+                        <div class="overflow-hidden rounded-xl h-64 w-full relative">
+                            <img src="campus-life.png" alt="Commercial Education" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute bottom-4 left-4 bg-[#0A192F] text-white font-bold px-4 py-2 rounded-lg text-[11px] tracking-wider uppercase border-l-4 border-[#F6C23E]">
+                                Commercial Education
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Duration Box -->
+                    <div class="bg-[#0A192F] text-white p-6 rounded-2xl shadow-md space-y-1">
+                        <span class="text-[#F6C23E] text-[10px] uppercase tracking-widest font-bold block">Program Duration</span>
+                        <h4 class="text-3xl font-serif font-bold">3 - 5 Years</h4>
+                        <p class="text-gray-400 text-xs font-medium">Business management pathways focusing on industrial administrative frameworks.</p>
+                    </div>
+                </div>
+
+                <!-- Right Details Column -->
+                <div class="lg:col-span-7 space-y-6 lg:pl-4">
+                    <div class="space-y-3">
+                        <h3 class="text-3xl font-serif font-bold text-[#0A192F]">Commercial Education</h3>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed font-medium">
+                            Business-focused curriculum covering accounting, economics, and entrepreneurship. Builds the next generation of business leaders with professional, administrative, and strategic asset enterprise proficiencies.
+                        </p>
+                    </div>
+                    <!-- Highlights -->
+                    <div class="space-y-3">
+                        <h4 class="text-xs uppercase tracking-wider font-bold text-gray-400">Program Highlights</h4>
+                        <ul class="space-y-2.5 text-sm font-semibold text-gray-700">
+                            <li class="flex items-center space-x-2"><span class="text-green-500 text-base">✓</span> <span>Real-world Financial Asset Management Metrics</span></li>
+                            <li class="flex items-center space-x-2"><span class="text-green-500 text-base">✓</span> <span>Accounting and Office Administration Systems</span></li>
+                            <li class="flex items-center space-x-2"><span class="text-green-500 text-base">✓</span> <span>Digital Skills for Business Leadership</span></li>
+                        </ul>
+                    </div>
+                    <!-- Subjects Offered Labels -->
+                    <div class="space-y-3">
+                        <h4 class="text-xs uppercase tracking-wider font-bold text-gray-400">Subjects Offered</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">Accounting</span>
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">Economics</span>
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">Marketing</span>
+                            <span class="bg-white px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-bold shadow-sm">Commerce</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- 4. WIDESCREEN STRETCH FOOTER (REPLICATED)  -->
+    <!-- ========================================== -->
+    <footer class="bg-school-navy text-white pt-12 pb-6 border-t-2 border-school-gold relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
+                <span class="text-[16px] uppercase tracking-widest text-school-gold font-bold mb-3 block">
+                    JOIN OUR COMMUNITY
+                </span>
+            <div class="text-center max-w-5xl mt-12 flex flex-col items-center">
+            <h2 class="font-heading font-bold text-3xl sm:text-4xl tracking-tight mb-4">Begin Your Journey</h2>
+            </div>
+            <p class="text-gray-300 max-w-xl mx-auto text-sm sm:text-base mb-8">
+                Admissions for the 2026/2027 academic year are open. Take the first step toward an exceptional education today.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#admissions" class="bg-school-gold text-school-navy font-bold px-6 py-3.5 rounded shadow-lg hover:bg-white transition-all">
+                    Apply Online Now
+                </a>
+                <a href="#contact" class="border border-gray-400 text-white font-semibold px-6 py-3.5 rounded hover:bg-white/10 transition-all">
+                    Contact Us
+                </a>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-6 font-semibold text-xs sm:text-sm pt-8 border-t border-white/10 mt-6 w-full">
+                <div class="flex items-center space-x-2">
+                    <span class="w-5 h-5 rounded-full bg-[#F6C23E] text-[#0A192F] flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
+                    <span>Bilingual Education</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="w-5 h-5 rounded-full bg-[#F6C23E] text-[#0A192F] flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
+                    <span>Certified Teachers</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="w-5 h-5 rounded-full bg-[#F6C23E] text-[#0A192F] flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
+                    <span>Modern Facilities</span>
+                </div>
+</div> <!-- <-- THIS WAS MISSING! This closes the row and protects your footer -->
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- COMBINED DESIGN FOOTER (DATA PRESERVED)    -->
+    <!-- ========================================== -->
+    <footer class="bg-school-navy text-white pt-12 pb-6 border-t-2 border-school-gold relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Main Four-Column Footer Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <!-- Column 1: School Identity Branding (Style from im 2_2, Logo from im 3) -->
+                <div class="flex flex-col space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <!-- 2D Rounded Cool Golden Yellow Logo Badge Container -->
+                        <div class="w-12 h-12 bg-school rounded-full flex items-center justify-center p-2 shadow-sm shrink-0">
+                            <!-- Flat 2D Minimalist Graduation Cap Vector -->
+                            <img src="logo.png.jpg" alt="MBCHS Crest Logo" class="w-14 h-14 object-contain">
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-bold text-lg text-white tracking-wide leading-tight">
+                                MBCHS
+                        </div>
+                    </div>
+                    
+                    <!-- Motto/Slogan Line Placeholder from im 2_2 Layout -->
+                    <span class="text-sm text-gray-200 pt-1 font-medium italic">
+                        Motto: Hard Work, Discipline, Success
+                    </span>
+                    
+                    <!-- Social Media Flat 2D Circle Button Row -->
+                    <div class="flex items-center space-x-2 pt-1">
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold text-white hover:bg-school-gold hover:text-school-navy transition-colors">f</a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-school-gold hover:text-school-navy transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-school-gold hover:text-school-navy transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links Directory (Data Preserved exactly from im 3) -->
+                <div class="space-y-4">
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-2.5 text-xs font-semibold text-gray-400">
+                        <li>
+                            <a href="index.html" class="hover:text-[#F6C23E] transition-colors">Home</a>
+                        </li>
+                        <li>
+                            <a href="about.html" class="hover:text-[#F6C23E] transition-colors">About Us</a>
+                        </li>
+                        <li>
+                            <a href="programs.html" class="hover:text-[#F6C23E] transition-colors">Programs</a>
+                        </li>
+                        <li>
+                            <a href="admissions.html" class="hover:text-[#F6C23E] transition-colors">Admissions</a>
+                        </li>
+                        <li>
+                            <a href="news.html" class="hover:text-[#F6C23E] transition-colors">News & Events</a>
+                        </li>
+                        <li>
+                            <a href="student-life.html" class="hover:text-[#F6C23E] transition-colors">Student Life</a>
+                        </li>
+                        <li>
+                            <a href="contact.html" class="hover:text-[#F6C23E] transition-colors">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact Channels Layer (Data Preserved exactly from im 3 with 2D Gold Icons) -->
+                <div>
+                    <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-white mb-4">
+                        Contact Channels
+                    </h4>
+                    <ul class="space-y-3 text-sm text-gray-300 font-medium">
+                        <!-- Location Line -->
+                        <li class="flex items-start space-x-2.5">
+                            <svg class="w-4 h-4 text-school-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>Nkapa, Souza, Litoral, Cameroon</span>
+                        </li>
+                        <!-- Telephone Line Group -->
+                        <li class="flex items-start space-x-2.5">
+                            <svg class="w-4 h-4 text-school-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <div class="flex flex-col space-y-1">
+                                <span>+237 677952148</span>
+                                <span>+237 670087339</span>
+                                <span>+237 679589509</span>
+                            </div>
+                        </li>
+                        <!-- Email Line -->
+                        <li class="flex items-center space-x-2.5">
+                            <svg class="w-4 h-4 text-school-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="break-all">mbchs2023edu@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter Box Container (Style from im 2_2, Text from im 3) -->
+                <div>
+                    <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-white mb-4">
+                        Newsletter
+                    </h4>
+                    <p class="text-sm text-gray-300 mb-3 font-medium">
+                        Subscribe for school updates and news notifications instantly.
+                    </p>
+                    <form class="flex flex-col space-y-2">
+                        <input type="email" placeholder="Your work email address..." class="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-school-gold transition-colors">
+                        <!-- Premium Solid Golden Yellow Submit Button -->
+                        <button type="submit" class="w-full bg-school-gold text-school-navy font-bold text-sm py-2 rounded hover:bg-white hover:text-school-navy transition-all shadow-md">
+                            SUBSCRIBE
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bottom Sub-Footer Metadata Bar -->
+            <div class="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 font-medium space-y-3 md:space-y-0">
+                <div>
+                    © 2026 Modongo Bilingual Comprehensive High School. All rights reserved.
+                </div>
+                <div class="flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-end">
+                    <a href="#portal" class="hover:text-school-gold transition-colors">Student Portal</a>
+                    <a href="#portal" class="hover:text-school-gold transition-colors">Teacher Portal</a>
+                    <a href="#results" class="hover:text-school-gold transition-colors">Result Checker</a>
+                    <a href="#downloads" class="hover:text-school-gold transition-colors">Download Center</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <script>
+            function switchTab(tabId) {
+            // 1. Hide all text content panels
+            const panels = document.querySelectorAll('.tab-panel');
+            panels.forEach(panel => panel.classList.add('hidden'));
+
+            // 2. Remove active navy styling from all buttons and return them to white state
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-[#0A192F]', 'text-white', 'border-[#0A192F]', 'shadow-md');
+                btn.classList.add('bg-white', 'text-[#0A192F]', 'border-gray-200', 'shadow-sm');
+            });
+
+            // 3. Unhide the specific target panel matching selected ID
+            document.getElementById(`panel-${tabId}`).classList.remove('hidden');
+
+            // 4. Apply high-contrast dark navy style to the active button
+            const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+            activeBtn.classList.remove('bg-white', 'text-[#0A192F]', 'border-gray-200', 'shadow-sm');
+            activeBtn.classList.add('bg-[#0A192F]', 'text-white', 'border-[#0A192F]', 'shadow-md');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+/* ==========================================================================
+   style.css - Reconstructed School Architecture Stylesheet
+   ========================================================================== */
+
+/* 1. Base Typography & Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-shadow: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Source Sans 3', sans-serif;
+    background-color: #F4F6F9;
+    color: #334155;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-heading {
+    font-family: 'Playfair Display', serif;
+}
+
+/* 2. Unified Brand Color Palette Mapping */
+.bg-school-navy { background-color: #051233; }
+.bg-school-gold { background-color: #E5A93C; }
+.bg-school-light { background-color: #F4F6F9; }
+
+.text-school-navy { color: #051233; }
+.text-school-gold { color: #E5A93C; }
+
+.border-school-gold-40 { border-color: rgba(229, 169, 60, 0.4); }
+
+/* 3. Hero Layer Setup with Deep Overlay Tint */
+.hero-background {
+    background-image: linear-gradient(to bottom, rgba(5, 18, 51, 0.88), rgba(15, 23, 42, 0.92)), url('hero.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 4. Slide-Out Side Navigation Drawer Architecture */
+.nav-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 360px;
+    height: 100vh;
+    background-color: #051233;
+    z-index: 100;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -4px 0 25px rgba(0, 0, 0, 0.4);
+}
+
+.nav-drawer.open {
+    right: 0;
+}
+
+.drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 90;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.drawer-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.drawer-link-active {
+    background-color: #E5A93C;
+    color: #051233 !important;
+    font-weight: 700;
+}
+
+/* 5. Keyframe Animation Engine */
+@keyframes scrollWheel {
+    0% { opacity: 1; transform: translateY(0); }
+    50% { opacity: 0.3; transform: translateY(6px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.scroll-dot {
+    animation: scrollWheel 2s infinite ease-in-out;
+}
+/* Custom Spacing Overrides to Clean Up Padding Nuisance */
+body section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+body section .text-center.mb-16,
+body section .text-center.mb-8 {
+    margin-bottom: 1.5rem !important;
+}
+
+body section .grid > div {
+    padding: 1.5rem !important;
+}
+/* Tighten Footer Section Padding and Gaps */
+footer.bg-school-navy {
+    padding-top: 1rem !important;    /* Dramatically cuts down top empty air */
+    padding-bottom: 0.5rem !important; /* Tightens space below the metadata bar */
+}
+
+/* Reduce spacing between the columns in the footer grid */
+footer.bg-school-navy .grid-cols-1 {
+    gap: 1rem !important; /* Lowers column spacing from gap-8 to a tight, crisp layout */
+}
+
+/* Pull the bottom sub-footer bar closer to the content */
+footer.bg-school-navy .mb-12 {
+    margin-bottom: 0.5rem !important; /* Shrinks the massive gap above the copyright line */
+}
+
+/* Pack list items closer together */
+footer.bg-school-navy ul.space-y-2 > li,
+footer.bg-school-navy ul.space-y-3 > li {
+    margin-top: 0.35rem !important;
+    margin-bottom: 0.35rem !important;
+}
+
+/* Tighten the internal alignment of the brand identity header block */
+footer.bg-school-navy .space-y-4 > * + * {
+    margin-top: 0.5rem !important; 
+}
+/* Global 2D Icon Controls for Footer Layout */
+
+/* 1. Force all Social Media SVG vector paths to your cool golden yellow */
+footer.bg-school-navy .flex.space-x-2 svg,
+footer.bg-school-navy .flex.space-x-2 svg path {
+    fill: var(--school-gold, #F6C23E) !important;
+    color: var(--school-gold, #F6C23E) !important;
+}
+
+/* 2. Style phone lines individually without touching the HTML structures */
+footer.bg-school-navy ul.space-y-3 li .flex.flex-col.space-y-1 span {
+    position: relative;
+    display: block;
+    padding-left: 1.5rem; /* Creates exact alignment pocket for icons */
+}
+
+/* 3. Inject a single flat 2D phone receiver vector before every phone line */
+footer.bg-school-navy ul.space-y-3 li .flex.flex-col.space-y-1 span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    background-color: var(--school-gold, #F6C23E);
+    
+    /* Sleek 2D flat minimalist phone mask layout */
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1A11.36 11.36 0 018.7 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.62c0-.55-.45-1-1-1z'/></svg>") no-repeat center;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><path d='M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1A11.36 11.36 0 018.7 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.62c0-.55-.45-1-1-1z'/></svg>") no-repeat center;
+    
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+/* 4. Hide the original solitary phone icon wrapper if it still exists in the DOM */
+footer.bg-school-navy ul.space-y-3 li > svg:first-child {
+    display: none !important;
+}
